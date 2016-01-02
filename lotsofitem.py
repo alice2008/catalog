@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker
 
 from database_setup import Base, Catalog, Item, User
 
-engine = create_engine('sqlite:///catalogitemwithuser.db')
+engine = create_engine('postgresql://catalog:1234@localhost/catalogitemwithuser')
 # Bind the engine to the metadata of the Base class so that the
 # declaratives can be accessed through a DBSession instance
 Base.metadata.bind = engine
@@ -50,7 +50,7 @@ session.commit()
 Catalog2 = Catalog(user=User1, name='Hockey')
 session.add(Catalog2)
 
-Item1 = Item(user=User1, name='Helmet', description='A helmet with strap, and optionally a face cage or visor, is required of all ice hockey players. Hockey helmets come in various sizes, and many of the older designs can also be adjusted by loosening or fastening screws at the side or at the back. Ice hockey helmets are made of a rigid but flexible thermoplastic outer shell, usually nylon or ABS, with firm vinyl nitrile foam padding inside to reduce shocks. Even with the helmet and visor/face cage, concussions and facial injuries are common injuries in the sport.', catalog=Catalog2)
+Item1 = Item(user=User1, name='Helmet', description='A helmet with strap, and optionally a face cage or visor, is required of all ice hockey players. ', catalog=Catalog2)
 session.add(Item1)
 
 Item1 = Item(user=User1, name='Neck Guard', description='A neck guard typically consists of a series of nylon or ABS plates for puncture resistance, with padding for comfort and fit and a tear-resistant nylon mesh outer covering.', catalog=Catalog2)

@@ -31,7 +31,7 @@ file_handler.setLevel(logging.WARNING)
 app.logger.addHandler(file_handler)
 
 
-engine = create_engine('sqlite:////home/grader/catalog/catalogitemwithuser.db')
+engine = create_engine('postgresql://catalog:1234@localhost/catalogitemwithuser')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 

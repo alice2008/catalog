@@ -63,7 +63,8 @@ class Item(Base):
 		}
 
 
-if __name__ == '__main__':
-    engine = create_engine('sqlite:////home/grader/catalog/catalogitemwithuser.db')
-    Base.metadata.create_all(engine)
+#if __name__ == '__main__':
+    #engine = create_engine('sqlite:////home/grader/catalog/catalogitemwithuser.db')
+engine = create_engine('postgresql://catalog:1234@localhost/catalogitemwithuser')
+Base.metadata.create_all(engine)
 
